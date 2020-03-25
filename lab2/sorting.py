@@ -24,7 +24,11 @@ def merge_sort(lst, p, r):
         p: starting index of the list, i.e 0
         r: ending index of the list, i.e. len(lst) - 1
     """
-    pass
+    if p < r:
+        q = (p + r) // 2
+        merge_sort(lst, p, q)
+        merge_sort(lst, q+1, r)
+        merge(lst, p, q, r)
 
 
 def merge(lst, p, q, r):
