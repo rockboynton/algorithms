@@ -2,7 +2,17 @@ def insertion_sort(lst):
     """
     Sorts the list lst in place using insertion_sort.
     """
-    pass
+    for i in range(1, len(lst)):
+        key = lst[i]
+
+        # shift element in sorted sequence lst[1..i - 1]
+        j = i - 1
+        while j >= 0 and lst[j] > key:
+            lst[j+1] = lst[j]
+            j -= 1
+
+        # insert lst[i] into the sorted sequence
+        lst[j+1] = key 
 
 
 def merge_sort(lst, p, r):
@@ -29,4 +39,18 @@ def merge(lst, p, q, r):
         q: ending index of first partition
         r: ending index of second partition
     """
-    pass
+    left = [lst[i] for i in range(p, q+1)]
+    right = [lst[j] for j in range(q+1, r+1)]
+
+    left.append(float('inf'))
+    right.append(float('inf'))
+
+    i = j = 0
+    for k in range(p, r+1):
+        if left[i] <= right[j]:
+            lst[k] = left[i]
+            i += 1
+        else:
+            lst[k] = right[j]
+            j += 1
+    
