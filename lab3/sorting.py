@@ -84,7 +84,14 @@ def heap_extract_max(A):
 
 
 def max_heap_insert(A, key):
-    pass
+    """Inserts an element into the heap
+    
+    Args:
+        A (list): the heap
+        key (int): the element to insert
+    """
+    A.append(float('-inf'))
+    _heap_increase_key(A, len(A) - 1, key)
 
 
 def heapsort(A):
@@ -92,7 +99,23 @@ def heapsort(A):
 
 
 def _heap_increase_key(A, i, key):
-    pass
+    """bubbles up key into place in the heap starting at an index
+    
+    Args:
+        A (list): the heap
+        i (int): index to start at
+        key (int): element to insert
+    
+    Raises:
+        ValueError: if new key is smaller than current key
+    """
+    if key < A[i]:
+        raise ValueError('New key is smaller than current key')
+
+    A[i] = key
+    while i > 0 and A[_parent(i)] < A[i]:
+        A[i], A[_parent(i)] = A[_parent(i)], A[i]
+        i = _parent(i)
 
 
 def _max_heapify(A, i):
