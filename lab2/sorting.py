@@ -46,12 +46,9 @@ def merge(lst, p, q, r):
     left = [lst[i] for i in range(p, q+1)]
     right = [lst[j] for j in range(q+1, r+1)]
 
-    left.append(float('inf'))
-    right.append(float('inf'))
-
     i = j = 0
     for k in range(p, r+1):
-        if left[i] <= right[j]:
+        if i <= q - p and (j >= r - q or left[i] <= right[j]):
             lst[k] = left[i]
             i += 1
         else:
