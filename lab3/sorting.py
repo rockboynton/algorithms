@@ -77,20 +77,23 @@ def _heap_increase_key(A, i, key):
 
 
 def _max_heapify(A, i):
-    '''
-    Called whenever a heap is modified to maintain heap property
+    """Called whenever a heap is modified to maintain heap property
     A[parent(i)] >= A[i]
 
     Uses recursion
-    '''
+
+    Args:
+        A: the heap array
+        i: the index to start with
+    """
     l = _left(i)
     r = _right(i)
 
     largest = i
-    if l <= len(A) and A[l] > A[largest]:
+    if l < len(A) and A[l] > A[largest]:
         largest = l
 
-    if r <= len(A) and A[r] > A[largest]:
+    if r < len(A) and A[r] > A[largest]:
         largest = r
 
     if largest != i:
