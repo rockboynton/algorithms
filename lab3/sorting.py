@@ -95,7 +95,24 @@ def max_heap_insert(A, key):
 
 
 def heapsort(A):
-    pass
+    """Sort using a max heap
+
+    Takes a list and first converts it to a heap, then pops off the max element
+    to a new list while maintaining the heap property until the heap is emptied.
+    The original list then has the new sorted list copied into it.
+    
+    Args:
+        A (list): the list to be sorted
+    """
+    build_max_heap(A)
+    sorted_A = []
+    for i in range(len(A) - 1, 0, -1):
+        A[0], A[i] = A[i], A[0]
+        sorted_A.insert(0, A.pop())
+        _max_heapify(A, 0)
+
+    for val in sorted_A:
+        A.append(val)
 
 
 def _heap_increase_key(A, i, key):
