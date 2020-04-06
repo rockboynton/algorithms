@@ -124,8 +124,8 @@ def _parent(i):
 
 
 def _left(i):
-    return 2 * i
+    return 2 * i + 1
 
 
 def _right(i):
-    return 2 * i + 1
+    return 2 * i + 2
