@@ -79,9 +79,14 @@ def _heap_increase_key(A, i, key):
 def _max_heapify(A, i):
     pass
 
+
+def _parent(i):
+    return i // 2
+
+
 def _left(i):
-    pass
+    return 2 * i
 
 
 def _right(i):
-    pass
+    return 2 * i + 1
