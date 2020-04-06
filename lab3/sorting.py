@@ -57,7 +57,8 @@ def merge(lst, p, q, r):
     
 
 def build_max_heap(A):
-    pass
+    for i in range(len(A) // 2, -1, -1):
+        _max_heapify(A, i)
 
 
 def heap_extract_max(A):
