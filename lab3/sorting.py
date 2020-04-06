@@ -61,7 +61,25 @@ def build_max_heap(A):
 
 
 def heap_extract_max(A):
-    pass
+    """Extracts the max element (root) of the heap
+
+    The heap property is maintained following the call to this function
+    
+    Args:
+        A (list): the heap
+    Raises:
+        ValueError: if the heap size is not at least 1
+    Returns:
+        int: the max element in the heap
+    """
+    if len(A) < 1:
+        raise ValueError('Heap underflow')
+
+    max_ = A[0]
+    A[0] = A[-1]
+    A.pop()
+    _max_heapify(A, 0)
+    return max_
 
 
 def max_heap_insert(A, key):
