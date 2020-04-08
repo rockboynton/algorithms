@@ -57,6 +57,11 @@ def merge(lst, p, q, r):
     
 
 def build_max_heap(A):
+    """Build heap from existing array
+    
+    Args:
+        A (lst): List to heapify
+    """
     for i in range(len(A) // 2, -1, -1):
         _max_heapify(A, i)
 
