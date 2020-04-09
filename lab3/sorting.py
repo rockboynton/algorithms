@@ -166,7 +166,7 @@ def _max_heapify(A, i):
 
 
 def _parent(i):
-    return (i - 1) // 2
+    return i // 2
 
 
 def _left(i):
