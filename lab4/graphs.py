@@ -1,4 +1,5 @@
 import copy
+from collections import defaultdict
 
 class DiGraph:
     """
@@ -12,14 +13,14 @@ class DiGraph:
     """
     
     def __init__(self):
-        pass
+        self._edges = defaultdict(set)
         
     def add_vertex(self, v):
         """
         Adds the given vertex v. If v is already in the
         graph, it isn't added again.
         """
-        pass
+        self._edges[v]
         
     def add_edge(self, u, v):
         """
@@ -27,35 +28,36 @@ class DiGraph:
         already in the graph, if it isn't added again.  If u or
         v are not present in the graph, they are added.
         """
-        pass
+        self._edges[v]
+        self._edges[u].add(v)
         
     def vertex_exists(self, u):
         """
         Returns true if u is in the graph, false otherwise.
         """
-        pass
+        return u in self._edges
         
     def edge_exists(self, u, v):
         """
         Returns true if there is an edge from u to v in the graph, false otherwise.
         If u or v are not in the graph, false is returned.
         """
-        pass
+        return v in self._edges[u]
     
     def get_outgoing_edges(self, u):
         """
         Returns a collection of edges starting at vertex u.
         """
-        pass
+        return self._edges[u]
     
     def count_vertices(self):
         """
         Counts the number of vertices in the graph
         """
-        pass
+        return len(self._edges)
         
     def count_edges(self):
         """
         Counts the number of edges in the graph
         """
-        pass
+        return sum(map(len, self._edges.values()))
