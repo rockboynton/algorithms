@@ -61,3 +61,18 @@ class DiGraph:
         Counts the number of edges in the graph
         """
         return sum(map(len, self._edges.values()))
+
+    def edge_set(self):
+        """Get a set of all edges in the graph.
+
+        Each edge is represented as a tuple of (start, end)
+
+        Returns:
+            set<tuple<vertex, vertex>>: Set of all edges
+        """
+        edges = set()
+        for start_vertex, edge_set in self._edges.items():
+            for end_vertex in self._edges[start_vertex]:
+                edges.add((start_vertex, end_vertex))
+
+        return edges

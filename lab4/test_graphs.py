@@ -42,7 +42,7 @@ class TestGraph(unittest.TestCase):
         self.assertNotIn("a", g._edges["b"])
         self.assertTrue(g.vertex_exists("a"))
         self.assertTrue(g.vertex_exists("b"))
-        self.assertTrue(g.edge_exists("a", "b"))
+        self.assertTrue(g.edge_exists("a", "b"))  
         self.assertFalse(g.edge_exists("b", "a"))
         self.assertEqual(g.count_vertices(), 2)
         self.assertEqual(g.count_edges(), 1)
