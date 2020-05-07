@@ -234,9 +234,11 @@ def recommend_all_friends(G, max_depth):
     
     The resulting recommendations are stored as a DiGraph.
     """
-    new_G = DiGraph()
+    H = DiGraph()
     for v in G._edges:
         visited = recommend_friends_for_user(G, v, max_depth)
-        new_G._edges[v] = set(visited)
+        for u in visited:
+            H.add_edge(v, u)
+            H.add_edge(u, v)
 
-    return new_G
+    return H
